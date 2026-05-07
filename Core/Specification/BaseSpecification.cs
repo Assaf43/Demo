@@ -1,0 +1,49 @@
+using System.Linq.Expressions;
+using Core.Interfaces;
+
+namespace Core.Specification;
+
+public class BaseSpecification<T>(Expression<Func<T, bool>> criteria) : ISpecification<T>
+{
+    protected BaseSpecification() : this(x => true)
+    {
+    }
+
+    public Expression<Func<T, bool>> Criteria => criteria;
+
+    public Expression<Func<T, object>>? OrderBy { get; private set; }
+
+    public Expression<Func<T, object>>? OrderByDescending { get; private set; }
+
+    public bool Isdistinct { get; private set; }
+
+    //public List<Expression<Func<T, object>>> Includes => throw new NotImplementedException();
+
+    protected void AddOrderBy(Expression<Func<T, object>> orderByExpression)
+    {
+        OrderBy = orderByExpression;
+    }
+
+    protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescendingExpression)
+    {
+        OrderByDescending = orderByDescendingExpression;
+    }
+
+    protected void ApplyDistinct()
+    {
+        Isdistinct = true;
+    }
+}
+
+public class BaseSpecification<T, TResult>(Expression<Func<T, bool>> criteria)
+    : BaseSpecification<T>(criteria), ISpecification<T, TResult>    
+{
+     protected BaseSpecification() : this(x => true){}
+
+    public Expression<Func<T, TResult>>? Selector { get; private set;}
+
+    protected void AddSelector(Expression<Func<T, TResult>> selectorExpression)
+    {
+        Selector = selectorExpression;
+    }
+}
