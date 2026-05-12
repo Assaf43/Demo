@@ -1,6 +1,8 @@
 .
-<div class="flex flex-col gap-3">
-  <div class="flex justify-between gap-3">
+<div class="flex flex-col gap-6">
+
+  <div class="flex items-center gap-4">
+
     <mat-paginator
       (page)="handlePageEvent($event)"
       [length]="products?.count || 0"
@@ -9,29 +11,26 @@
       [pageSizeOptions]="[5, 10, 15, 20]"
       showFirstLastButtons
       aria-label="Select Page"
-    >
-    </mat-paginator>
+      class="shrink-0"
+    ></mat-paginator>
 
     <form
       #searchForm="ngForm"
       (ngSubmit)="onSearchChange()"
-      class="relative flex items-center w-full max-w-md mx-4"
-    >              
-        <input 
-          class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg"
-          matInput
-          placeholder="Search products..."
-          name="search"
-          [(ngModel)]="shopParams.search"
-          (input)="onSearchChange()"
-        />
-        <button mat-icon-button type="submit" 
-          class="absolute insert-y-0 right-8 top-2 flex items-center pl-3">
-          <mat-icon>search</mat-icon>
-        </button>
+      class="relative flex items-center flex-1"
+    >
+      <mat-icon class="absolute left-3 text-gray-400 pointer-events-none">search</mat-icon>
+      <input
+        class="block w-full h-10 pl-10 pr-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:border-transparent"
+        matInput
+        placeholder="Search products..."
+        name="search"
+        [(ngModel)]="shopParams.search"
+        (input)="onSearchChange()"
+      />
     </form>
 
-    <div class="flex gap-3">
+    <div class="flex gap-3 shrink-0">
       <button mat-flat-button color="primary" (click)="openFilterDialog()">
         <mat-icon>filter_list</mat-icon>
         Filters
@@ -41,6 +40,7 @@
         Sort
       </button>
     </div>
+
   </div>
 
   <div class="grid grid-cols-5 gap-4">
@@ -48,6 +48,7 @@
       <app-product-item class="h-full" [product]="product"></app-product-item>
     }
   </div>
+
 </div>
 
 <mat-menu #sortMenu="matMenu">
