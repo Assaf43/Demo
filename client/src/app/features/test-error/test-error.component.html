@@ -1,0 +1,26 @@
+<div class="mt-5 flex justify-center gap-4">
+  <button mat-stroked-button (click)="get404Error()">Test 404 Error</button>
+  <button mat-stroked-button (click)="get400Error()">Test 400 Error</button>
+  <button mat-stroked-button (click)="get401Error()">Test 401 Error</button>
+  <button mat-stroked-button (click)="get500Error()">Test 500 Error</button>
+  <button mat-stroked-button (click)="get400ValidationError()">Test 400 Validation Error</button>
+</div>
+
+@if (validationErrors) {
+  <div class="mt-5 flex justify-center">
+    <div class="w-full md:w-1/2">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Validation Errors</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            @for (error of validationErrors; track $index) {
+              <li>{{ error }}</li>
+            }
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+}

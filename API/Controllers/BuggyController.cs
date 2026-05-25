@@ -15,7 +15,7 @@ public class BuggyController : BaseApiController
     [HttpGet("badrequest")]
     public IActionResult GetBadRequest()
     {
-        return BadRequest(new ProblemDetails { Title = "This is a bad request" });
+        return BadRequest("This is not a good request");
     }
 
     [HttpGet("notfound")]
@@ -27,7 +27,7 @@ public class BuggyController : BaseApiController
     [HttpGet("internalerror")]
     public IActionResult GetInternalServerError()
     {
-        throw new Exception("This is a server error");
+        throw new Exception("This is a test exception");
     }
 
     [HttpPost("validationerror")]
