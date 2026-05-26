@@ -8,12 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
+    <PackageReference Include="StackExchange.Redis" Version="2.13.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Data\" />
     <Folder Include="Data\SeedData\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
