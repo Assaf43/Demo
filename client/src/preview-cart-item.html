@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart Item Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Roboto', sans-serif; background: #f5f5f5; padding: 32px; }
+
+    .cart-item {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: box-shadow 0.2s;
+    }
+    .cart-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+    .cart-item img {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #f3f4f6;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .cart-item-info h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+      margin: 0 0 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cart-item-info .meta {
+      font-size: 12px;
+      color: #9ca3af;
+      margin: 0;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 4px;
+    }
+    .qty-btn {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      transition: background 0.15s, color 0.15s;
+    }
+    .qty-btn:hover { background: #e5e7eb; color: #111827; }
+    .qty-btn .material-icons { font-size: 16px; }
+    .qty-btn.remove:hover { background: #fee2e2; color: #dc2626; }
+    .qty-btn.add:hover { background: #dcfce7; color: #16a34a; }
+    .qty-value {
+      width: 32px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .cart-item-price {
+      text-align: right;
+      min-width: 80px;
+    }
+    .cart-item-price p {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 8px;
+    }
+
+    .delete-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border: none;
+      background: none;
+      color: #9ca3af;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+      font-family: 'Roboto', sans-serif;
+    }
+    .delete-btn:hover { background: #fee2e2; color: #dc2626; }
+    .delete-btn .material-icons { font-size: 15px; }
+  </style>
+</head>
+<body>
+
+  <div style="max-width: 700px; margin: 0 auto;">
+    <h2 style="font-size:13px;font-weight:600;color:#9ca3af;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">Shopping Cart — 3 items</h2>
+
+    <!-- Item 1 -->
+    <div class="cart-item">
+      <div style="width:88px;height:88px;background:linear-gradient(135deg,#e8e0f0,#d0c4e8);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span class="material-icons" style="font-size:40px;color:#9e85c8;">snowboarding</span>
+      </div>
+      <div class="cart-item-info">
+        <h3>Angular Blue Boots</h3>
+        <p class="meta">Angular · Boots</p>
+      </div>
+      <div class="qty-controls">
+        <button class="qty-btn remove"><span class="material-icons">remove</span></button>
+        <span class="qty-value">2</span>
+        <button class="qty-btn add"><span class="material-icons">add</span></button>
+      </div>
+      <div class="cart-item-price">
+        <p>$360.00</p>
+        <button class="delete-btn">
+          <span class="material-icons">delete_outline</span>
+          Remove
+        </button>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="cart-item">
+      <div style="width:88px;height:88px;background:linear-gradient(135deg,#e0f0e8,#c4e8d0);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span class="material-icons" style="font-size:40px;color:#5ca87e;">pan_tool</span>
+      </div>
+      <div class="cart-item-info">
+        <h3>Blue Code Gloves</h3>
+        <p class="meta">Code · Gloves</p>
+      </div>
+      <div class="qty-controls">
+        <button class="qty-btn remove"><span class="material-icons">remove</span></button>
+        <span class="qty-value">1</span>
+        <button class="qty-btn add"><span class="material-icons">add</span></button>
+      </div>
+      <div class="cart-item-price">
+        <p>$18.00</p>
+        <button class="delete-btn">
+          <span class="material-icons">delete_outline</span>
+          Remove
+        </button>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="cart-item">
+      <div style="width:88px;height:88px;background:linear-gradient(135deg,#f0e8e0,#e8d0c4);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span class="material-icons" style="font-size:40px;color:#a87e5c;">face</span>
+      </div>
+      <div class="cart-item-info">
+        <h3>Core Blue Hat</h3>
+        <p class="meta">Core · Hats</p>
+      </div>
+      <div class="qty-controls">
+        <button class="qty-btn remove"><span class="material-icons">remove</span></button>
+        <span class="qty-value">1</span>
+        <button class="qty-btn add"><span class="material-icons">add</span></button>
+      </div>
+      <div class="cart-item-price">
+        <p>$10.00</p>
+        <button class="delete-btn">
+          <span class="material-icons">delete_outline</span>
+          Remove
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

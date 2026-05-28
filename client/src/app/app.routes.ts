@@ -17,6 +17,10 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'cart', loadComponent: () => 
+      import('./features/cart/cart.component').then((m) => m.CartComponent),
+  },
+  {
     path: 'test-error',
     loadComponent: () =>
       import('./features/test-error/test-error.component').then((m) => m.TestErrorComponent),

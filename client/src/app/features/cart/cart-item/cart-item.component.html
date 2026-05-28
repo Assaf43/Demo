@@ -1,0 +1,30 @@
+<div class="cart-item">
+  <a routerLink="/shop/{{item().productId}}" class="img-wrapper">
+    <img [src]="item().pictureUrl" alt="{{item().productName}}" />
+  </a>
+
+  <div class="cart-item-info">
+    <a routerLink="/shop/{{item().productId}}">
+      <h3>{{item().productName}}</h3>
+    </a>
+    <p class="meta">{{item().brand}} · {{item().type}}</p>
+  </div>
+
+  <div class="qty-controls">
+    <button mat-icon-button class="qty-btn remove" (click)="decrementQuantity()">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <span class="qty-value">{{item().quantity}}</span>
+    <button mat-icon-button class="qty-btn add" (click)="incrementQuantity()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="cart-item-price">
+    <p>{{item().price | currency}}</p>
+    <button mat-button class="delete-btn" (click)="removeItemFromCart()">
+      <mat-icon>delete_outline</mat-icon>
+      Remove
+    </button>
+  </div>
+</div>

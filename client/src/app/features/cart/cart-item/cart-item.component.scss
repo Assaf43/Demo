@@ -1,0 +1,140 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.img-wrapper {
+  flex-shrink: 0;
+
+  img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f3f4f6;
+    padding: 6px;
+  }
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 0;
+
+  a { text-decoration: none; }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover { color: #6750a4; }
+  }
+
+  .meta {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+  }
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 2px;
+  height: 40px;
+
+  .qty-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ::ng-deep .mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+    }
+
+    &.remove:hover {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    &.add:hover {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+  }
+
+  .qty-value {
+    width: 32px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1;
+  }
+}
+
+.cart-item-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  gap: 8px;
+
+  p {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #9ca3af;
+    font-size: 12px;
+    padding: 4px 10px;
+    min-width: unset;
+    border-radius: 6px;
+    height: 28px;
+
+    mat-icon {
+      font-size: 14px;
+      width: 14px;
+      height: 14px;
+      line-height: 14px;
+    }
+
+    &:hover {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+  }
+}

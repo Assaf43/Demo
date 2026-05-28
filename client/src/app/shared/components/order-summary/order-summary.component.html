@@ -1,0 +1,41 @@
+<div class="order-summary">
+  <h3 class="summary-title">Order Summary</h3>
+
+  <div class="summary-rows">
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span>{{cartService.totals()?.subtotal | currency}}</span>
+    </div>
+    <div class="summary-row">
+      <span>Discount</span>
+      <span class="discount-value">
+        {{ (cartService.totals()?.discount ?? 0) > 0 ? '-' : '' }}
+        {{ cartService.totals()?.discount | currency }}
+      </span>
+    </div>
+    <div class="summary-row">
+      <span>Delivery</span>
+      <span>{{cartService.totals()?.shipping | currency}}</span>
+    </div>
+  </div>
+
+  <div class="summary-total">
+    <span>Total</span>
+    <span>{{cartService.totals()?.total| currency}}</span>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <button routerLink="/checkout" class="checkout-btn">Proceed to Checkout</button>
+    <button routerLink="/shop" class="continue-btn">Continue Shopping</button>
+  </div>
+
+  <div class="voucher-section">
+    <label class="voucher-label">do you have a voucher code?</label>
+    <form class="voucher-form">
+      <input type="text" placeholder="Discount code" class="voucher-input" />
+      <button type="submit" class="voucher-btn">apply</button>
+    </form>
+  </div>
+
+  <p class="summary-note">Taxes and shipping calculated at checkout</p>
+</div>
