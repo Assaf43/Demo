@@ -21,6 +21,10 @@ export const routes: Routes = [
       import('./features/cart/cart.component').then((m) => m.CartComponent),
   },
   {
+    path: 'checkout', loadComponent: () => 
+      import('./features/checkout/checkout.component').then((m) => m.CheckoutComponent),
+  },
+  {
     path: 'test-error',
     loadComponent: () =>
       import('./features/test-error/test-error.component').then((m) => m.TestErrorComponent),

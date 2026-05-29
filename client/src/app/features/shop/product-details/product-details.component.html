@@ -18,6 +18,8 @@
           <div>
             <p class="text-xs uppercase tracking-widest text-purple-600 font-semibold mb-2">Product Details</p>
             <h1 class="text-3xl font-bold text-gray-900 leading-tight">{{ product.name }}</h1>
+
+            <p>you have {{quantityInCart}} in cart</p>
           </div>
 
           <div class="flex items-baseline gap-2">
@@ -35,15 +37,17 @@
               <label class="text-xs text-gray-500 font-medium tracking-wide">Qty</label>
               <input
                 type="number"
-                min="1"
-                value="1"
+                min="0"
+                value="1"                
                 class="qty-input"
+                [(ngModel)]="quantity"
               />
             </div>
 
-            <button mat-flat-button color="primary" class="add-to-cart-btn">
+            <button [disabled]="quantity === quantityInCart" (click)="updateCart()"
+              mat-flat-button color="primary" class="add-to-cart-btn">
               <mat-icon>shopping_cart</mat-icon>
-              Add to Cart
+              {{getButtonText()}}
             </button>
           </div>
 
