@@ -18,8 +18,17 @@
       >
         <mat-icon>shopping_cart</mat-icon>
       </a>
-      <button mat-stroked-button>Login</button>
-      <button mat-stroked-button>Register</button>
+      @if (accountService.currentUser()) {
+        <button class="user-trigger" [mat-menu-trigger-for]="menu">
+          <div class="user-avatar">
+            {{ accountService.currentUser()?.email?.[0]?.toUpperCase() }}
+          </div>
+          <mat-icon class="dropdown-icon">expand_more</mat-icon>
+        </button>
+      } @else {
+        <button routerLink="/login" mat-stroked-button>Login</button>
+        <button routerLink="/register" mat-stroked-button>Register</button>
+      }
     </div>
   </div>
 </header>
@@ -27,3 +36,33 @@
 @if (busyService.loading) {
   <mat-progress-bar class="fixed top-20 z-50" mode="indeterminate"></mat-progress-bar>
 }
+
+<mat-menu #menu="matMenu" class="user-menu">
+  <div class="menu-header" (click)="$event.stopPropagation()">
+    <div class="menu-avatar">
+      {{ accountService.currentUser()?.email?.[0]?.toUpperCase() }}
+    </div>
+    <div class="menu-user-info">
+      <span class="menu-email">{{ accountService.currentUser()?.email }}</span>
+      <span class="menu-role">Member</span>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <button mat-menu-item routerLink="/cart">
+    <mat-icon>shopping_cart</mat-icon>
+    <span>My Cart</span>
+  </button>
+  <button mat-menu-item routerLink="/orders">
+    <mat-icon>receipt_long</mat-icon>
+    <span>My Orders</span>
+  </button>
+
+  <mat-divider></mat-divider>
+
+  <button mat-menu-item class="logout-item" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

@@ -18,3 +18,115 @@ a {
     color: #ff4081;
   }
 }
+
+/* User trigger button */
+.user-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 4px 10px 4px 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: #6750a4;
+    box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.1);
+  }
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #6750a4;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.dropdown-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+}
+
+/* Menu panel */
+::ng-deep .user-menu {
+  .mat-mdc-menu-panel {
+    border-radius: 14px !important;
+    min-width: 220px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+
+  .mat-mdc-menu-content {
+    padding: 0 !important;
+  }
+}
+
+/* Menu header with user info */
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.menu-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #6750a4;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.menu-user-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.menu-email {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-role {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+/* Logout item */
+::ng-deep .user-menu .logout-item {
+  color: #dc2626 !important;
+
+  .mat-icon {
+    color: #dc2626 !important;
+  }
+
+  &:hover {
+    background: #fee2e2 !important;
+  }
+}

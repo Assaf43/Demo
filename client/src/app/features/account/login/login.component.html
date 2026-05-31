@@ -1,0 +1,63 @@
+<div class="login-page">
+
+  <!-- Left: Branding -->
+  <div class="login-brand">
+    <div class="brand-content">
+      <div class="brand-icon-wrapper">
+        <mat-icon class="brand-icon">downhill_skiing</mat-icon>
+      </div>
+      <h2>Shinet-Core</h2>
+      <p>Your gear, your mountain. Sign in and get back on the slopes.</p>
+
+      <div class="brand-features">
+        <div class="feature-item">
+          <mat-icon>local_shipping</mat-icon>
+          <span>Free shipping over $100</span>
+        </div>
+        <div class="feature-item">
+          <mat-icon>replay</mat-icon>
+          <span>30-day easy returns</span>
+        </div>
+        <div class="feature-item">
+          <mat-icon>verified</mat-icon>
+          <span>Premium gear only</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Form -->
+  <div class="login-form-side">
+    <mat-card class="login-card">
+
+      <div class="login-header">
+        <h1>Welcome back 👋</h1>
+        <p>Sign in to your account to continue</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email address</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="name@gmail.com" autocomplete="email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" placeholder="••••••••" autocomplete="current-password" />
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit" class="submit-btn">
+          Sign in
+        </button>
+
+      </form>
+
+      <p class="register-link">
+        Don't have an account? <a routerLink="/register">Register here</a>
+      </p>
+
+    </mat-card>
+  </div>
+
+</div>

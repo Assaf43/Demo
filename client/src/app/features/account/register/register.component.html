@@ -1,0 +1,106 @@
+<div class="register-page">
+
+  <!-- Left: Branding -->
+  <div class="register-brand">
+    <div class="brand-content">
+      <div class="brand-icon-wrapper">
+        <mat-icon class="brand-icon">downhill_skiing</mat-icon>
+      </div>
+      <h2>Join Shinet-Core</h2>
+      <p>Create your account and start exploring the best snow sports gear.</p>
+
+      <div class="brand-features">
+        <div class="feature-item">
+          <mat-icon>local_shipping</mat-icon>
+          <span>Free shipping over $100</span>
+        </div>
+        <div class="feature-item">
+          <mat-icon>replay</mat-icon>
+          <span>30-day easy returns</span>
+        </div>
+        <div class="feature-item">
+          <mat-icon>verified</mat-icon>
+          <span>Premium gear only</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Form -->
+  <div class="register-form-side">
+    <mat-card class="register-card">
+
+      <div class="register-header">
+        <h1>Create account</h1>
+        <p>Fill in your details to get started</p>
+      </div>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+
+        <div class="name-row">
+          <app-text-input label="First name" formControlName="firstName"/>
+          <app-text-input label="Last name" formControlName="lastName"/>
+          <!-- <mat-form-field appearance="outline" class="half-width">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstName" type="text" placeholder="John" autocomplete="given-name" />
+            @if (registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched) {
+              <mat-error>First name is required</mat-error>
+            }
+          </mat-form-field> 
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lastName" type="text" placeholder="Doe" autocomplete="family-name" />
+            @if (registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched) {
+              <mat-error>Last name is required</mat-error>
+            }
+          </mat-form-field>-->
+        </div>
+
+        <app-text-input label="Email address" formControlName="email"/>
+        <app-text-input label="Password" formControlName="password" type="password"/>
+
+        <!-- <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email address</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="name@gmail.com" autocomplete="email" />
+          @if (registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched) {
+            <mat-error>Email is required</mat-error>
+          } @else if (registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched) {
+            <mat-error>Please enter a valid email address</mat-error>
+          }
+        </mat-form-field> -->
+
+        <!-- <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" placeholder="password" autocomplete="new-password" />
+          @if (registerForm.get('password')?.errors?.['passwordStrength']) {
+            @for (err of registerForm.get('password')?.errors?.['passwordStrength']; track $index) {
+              <mat-error>{{ err }}</mat-error>
+            }
+          }
+        </mat-form-field> -->
+
+        @if (validationErrors && validationErrors.length > 0) {
+          <div class="validation-errors">
+            <mat-icon class="error-icon">error_outline</mat-icon>
+            <ul>
+              @for (error of validationErrors; track $index) {
+                <li>{{ error }}</li>
+              }
+            </ul>
+          </div>
+        }
+
+        <button [disabled]="registerForm.invalid" mat-flat-button color="primary" type="submit" class="submit-btn">
+          Create Account
+        </button>
+
+      </form>
+
+      <p class="login-link">
+        Already have an account? <a routerLink="/login">Sign in here</a>
+      </p>
+
+    </mat-card>
+  </div>
+
+</div>
